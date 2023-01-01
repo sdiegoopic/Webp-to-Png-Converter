@@ -2,6 +2,8 @@
 
 Este código es una aplicación de Python que permite a los usuarios convertir todos los archivos con extensión ".webp" en la carpeta actual a formato ".png".
 
+# (El programa suele funcionar sin instalación, de lo contrario recomiendo seguir las instrucciones de abajo 🙂 ).
+
 ## Requisitos
 
 Para utilizar este código, necesita tener instalado Python en su sistema y los módulos "os", "glob" y "PIL".
