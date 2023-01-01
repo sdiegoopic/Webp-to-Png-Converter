@@ -8,14 +8,17 @@ Para utilizar este código, necesita tener instalado Python en su sistema y los 
 
 Para utilizar este código, necesitarás tener instalado Python en tu sistema. Puedes descargar e instalar Python desde la página oficial: https://www.python.org/downloads/
 
-También necesitarás instalar los módulos "os", "glob" y "PIL". Estos módulos se utilizan para realizar operaciones de entrada y salida de archivos, buscar archivos con un patrón de nombre específico y trabajar con imágenes, respectivamente.
 
-Puedes instalar estos módulos utilizando el administrador de paquetes de Python "pip". Abre la consola o la línea de comandos y escribe los siguientes comandos:
+Para instalar los módulos necesarios para que este código funcione, puedes utilizar el administrador de paquetes de Python "pip". Abre la consola o la línea de comandos y escribe los siguientes comandos:
 
-`pip install os` </br>
-`pip install glob`</br>
-`pip install pillow`
+```console
+pip install pillow
+```
 
+Esto instalará el módulo "PIL" (también conocido como "Pillow"), que se utiliza para abrir y modificar imágenes en formato ".webp" y ".png"
+```console
+pip install tkinter
+```
 
 ## Uso
 
