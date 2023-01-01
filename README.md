@@ -6,7 +6,7 @@ Este código es una aplicación de Python que permite a los usuarios convertir t
 
 ## Requisitos
 
-Para utilizar este código, necesita tener instalado Python en su sistema y los módulos "os", "glob" y "PIL".
+Para poder utilizar el módulo `glob`, `PIL` y `os` en tu código, primero debes asegurarte de que tienes estos módulos instalados en tu sistema. Puedes instalarlos ejecutando los siguientes comandos en tu consola o terminal:
 
 Para utilizar este código, necesitarás tener instalado Python en tu sistema. Puedes descargar e instalar Python desde la página oficial: https://www.python.org/downloads/
 
@@ -14,18 +14,20 @@ Para utilizar este código, necesitarás tener instalado Python en tu sistema. P
 Para instalar los módulos necesarios para que este código funcione, puedes utilizar el administrador de paquetes de Python "pip". Abre la consola o la línea de comandos y escribe los siguientes comandos:
 
 ```console
+pip install glob
 pip install pillow
 ```
-
-Esto instalará el módulo "PIL" (también conocido como "Pillow"), que se utiliza para abrir y modificar imágenes en formato ".webp" y ".png"
-```console
-pip install tkinter
-```
-
 ## Uso
 
-Para utilizar este código, simplemente ejecútelo desde la línea de comandos o mediante una interfaz de desarrollo integrada (IDE) de Python. La aplicación mostrará una ventana emergente con un mensaje y un botón de "OK" o "Cancelar". Si el usuario pulsa "OK", se ejecutará la función `"convertir_webp_a_png()"` y se convertirán todos los archivos con extensión `".webp"` en la carpeta actual a formato `".png"`.
+Para utilizar este código, simplemente ejecute la terminal o CMD donde esta el archivo `main` y las imagenes que desea convertir.
 
-### En la carpeta "Dist" está el programa.
-![test](https://user-images.githubusercontent.com/82792394/210160536-39a047ec-cd1d-4f06-b79b-f52a206d3ad9.gif)
+Luego, coloque el siguiente comando
+```console
+python main.py
+```
+
+![eee](https://user-images.githubusercontent.com/82792394/210187311-70c69c78-3716-4fcf-acee-35e21ec3143c.gif)
+
+### 
+!
 
