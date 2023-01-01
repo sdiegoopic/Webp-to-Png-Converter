@@ -21,4 +21,4 @@ Puedes instalar estos módulos utilizando el administrador de paquetes de Python
 
 Para utilizar este código, simplemente ejecútelo desde la línea de comandos o mediante una interfaz de desarrollo integrada (IDE) de Python. La aplicación mostrará una ventana emergente con un mensaje y un botón de "OK" o "Cancelar". Si el usuario pulsa "OK", se ejecutará la función `"convertir_webp_a_png()"` y se convertirán todos los archivos con extensión `".webp"` en la carpeta actual a formato `".png"`.
 
-### En la carpeta "Dist" está el archivo que debe ser ejecutado.
+### En la carpeta "Dist" está el programa.
