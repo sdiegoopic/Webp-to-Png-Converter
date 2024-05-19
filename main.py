@@ -1,29 +1,57 @@
 import os
-import glob
 from PIL import Image
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import filedialog, messagebox
 
-# Función para convertir archivos webp a png
+# Función para convertir múltiples archivos seleccionados de WebP a PNG
 def convertir_webp_a_png():
-  # Obtener una lista de todos los archivos con extensión .webp en la carpeta actual
-  archivos = glob.glob('*.webp')
+    # Abrir el cuadro de diálogo para seleccionar múltiples archivos de entrada
+    archivos_entrada = filedialog.askopenfilenames(
+        title="Selecciona archivos WebP",
+        filetypes=(("WebP files", "*.webp"),)
+    )
+    
+    if not archivos_entrada:
+        messagebox.showwarning("Advertencia", "No se ha seleccionado ningún archivo.")
+        return
 
-  # Bucle para iterar sobre cada nombre de archivo
-  for archivo in archivos:
-    # Cargar la imagen webp en una imagen de PIL
-    image = Image.open(archivo)
+    # Abrir el cuadro de diálogo para seleccionar la carpeta de exportación
+    carpeta_exportacion = filedialog.askdirectory(
+        title="Selecciona la carpeta de exportación"
+    )
+    
+    if not carpeta_exportacion:
+        messagebox.showwarning("Advertencia", "No se ha seleccionado ninguna carpeta de exportación.")
+        return
 
-    # Convertir la imagen a png y guardarla en un archivo
-    nombre, extension = os.path.splitext(archivo)
-    image.save(f'{nombre}.png', 'png')
+    for archivo_entrada in archivos_entrada:
+        try:
+            # Cargar la imagen
+            image = Image.open(archivo_entrada)
+            
+            # Obtener el nombre del archivo sin la extensión
+            nombre_archivo = os.path.splitext(os.path.basename(archivo_entrada))[0]
+            
+            # Crear la ruta completa del archivo de salida
+            archivo_salida = os.path.join(carpeta_exportacion, f"{nombre_archivo}.png")
+            
+            # Guardar la imagen en formato PNG
+            image.save(archivo_salida, 'png')
+            
+            # Mostrar un mensaje de éxito
+            print(f"Archivo {archivo_entrada} convertido con éxito a {archivo_salida}")
+        except Exception as e:
+            messagebox.showerror("Error", f"Se ha producido un error al convertir {archivo_entrada}: {e}")
 
-    # Mostrar un mensaje de éxito
-    print(f'Archivo {archivo} convertido con éxito')
+    messagebox.showinfo("Conversión Completa", "Todos los archivos seleccionados se han convertido a formato PNG.")
 
-# Crear una ventana emergente con un botón de "OK"
-resultado = messagebox.askokcancel("Convertidor de WebP a PNG", "¿Quieres convertir todos los archivos WebP en la carpeta actual a formato PNG?")
+# Crear la ventana principal
+root = tk.Tk()
+root.title("Convertidor de WebP a PNG")
 
-# Si el usuario pulsa "OK", ejecutar la función de conversión
-if resultado:
-  convertir_webp_a_png()
+# Configurar el botón para seleccionar archivos y convertir
+btn_convertir = tk.Button(root, text="Seleccionar archivos y convertir a PNG", command=convertir_webp_a_png)
+btn_convertir.pack(pady=20)
+
+# Ejecutar el bucle principal de Tkinter
+root.mainloop()
